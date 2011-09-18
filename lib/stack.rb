@@ -7,9 +7,7 @@ class Stack
     @data = []
   end
 
-  def_delegator :@data, :push
-  def_delegator :@data, :empty?
-  def_delegator :@data, :size
+  def_delegators :@data, :push, :empty?, :size
 
   def pop
     raise EmptyStackError if empty?
