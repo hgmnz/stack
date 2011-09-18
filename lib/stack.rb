@@ -1,4 +1,5 @@
 class Stack
+  extend Forwardable
 
   class EmptyStackError < StandardError; end
 
@@ -6,26 +7,12 @@ class Stack
     @data = []
   end
 
-  def push(*elements)
-    elements.each do |element|
-      @data << element
-    end
-  end
+  def_delegator :@data, :push
+  def_delegator :@data, :empty?
+  def_delegator :@data, :size
 
   def pop
     raise EmptyStackError if empty?
-    element = @data[-1]
-    @data.delete_at(-1)
-
-    element
+    @data.pop
   end
-
-  def empty?
-    @data.empty?
-  end
-
-  def size
-    @data.size
-  end
-
 end
