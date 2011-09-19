@@ -1,3 +1,4 @@
+require 'forwardable'
 class Stack
   extend Forwardable
 
