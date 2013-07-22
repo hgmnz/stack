@@ -13,6 +13,11 @@ describe Stack do
       subject.size.should == 1
     end
 
+    it 'is not empty when elements are pushed' do
+      subject.push(1)
+      subject.should_not be_empty
+    end
+
     it 'can be pushed many elements at once' do
       subject.push(1, 2, 3, 4, 5)
       subject.size.should == 5
